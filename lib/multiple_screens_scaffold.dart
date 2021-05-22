@@ -5,32 +5,32 @@ import 'constants.dart';
 
 /// A widget similar to Scaffold which supports multiple screens
 class MultipleScreensScaffold extends StatefulWidget {
-  final PreferredSizeWidget appBar;
+  final PreferredSizeWidget? appBar;
   final bool appSpanned;
-  final Color backgroundColor;
-  final Widget body;
-  final Widget bottomNavigationBar;
-  final Widget bottomSheet;
-  final Widget drawer;
+  final Color? backgroundColor;
+  final Widget? body;
+  final Widget? bottomNavigationBar;
+  final Widget? bottomSheet;
+  final Widget? drawer;
   final DragStartBehavior drawerDragStartBehavior;
-  final double drawerEdgeDragWidth;
-  final Color drawerScrimColor;
-  final Widget endDrawer;
+  final double? drawerEdgeDragWidth;
+  final Color? drawerScrimColor;
+  final Widget? endDrawer;
   final bool extendBody;
   final bool extendBodyBehindAppBar;
-  final Widget floatingActionButton;
-  final FloatingActionButtonAnimator floatingActionButtonAnimator;
-  final FloatingActionButtonLocation floatingActionButtonLocation;
-  final Widget left;
-  final List<Widget> persistentFooterButtons;
+  final Widget? floatingActionButton;
+  final FloatingActionButtonAnimator? floatingActionButtonAnimator;
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
+  final Widget? left;
+  final List<Widget>? persistentFooterButtons;
   final bool primary;
-  final bool resizeToAvoidBottomInset;
-  final Widget right;
+  final bool? resizeToAvoidBottomInset;
+  final Widget? right;
 
   const MultipleScreensScaffold({
-    Key key,
+    Key? key,
     this.appBar,
-    this.appSpanned,
+    this.appSpanned = false,
     this.backgroundColor,
     this.body,
     this.bottomNavigationBar,
@@ -50,8 +50,7 @@ class MultipleScreensScaffold extends StatefulWidget {
     this.primary = true,
     this.resizeToAvoidBottomInset,
     this.right,
-  })  : assert(appSpanned != null),
-        assert(
+  })  : assert(
           (left != null && right != null && body == null) ||
               (left == null && right == null && body != null),
         ),
@@ -87,9 +86,9 @@ class _MultipleScreensScaffoldState extends State<MultipleScreensScaffold> {
           : widget.appSpanned
               ? Row(
                   children: [
-                    Expanded(flex: 1, child: widget.left),
+                    Expanded(flex: 1, child: widget.left ?? Container()),
                     SizedBox(width: Constants.hingeWidth),
-                    Expanded(flex: 1, child: widget.right),
+                    Expanded(flex: 1, child: widget.right ?? Container()),
                   ],
                 )
               : widget.left,
