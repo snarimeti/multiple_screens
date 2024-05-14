@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                RaisedButton(
+                ElevatedButton(
                   child: Text('Drag drop screen example'),
                   onPressed: () => Navigator.push(
                     context,
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text('Multiple screen methods example'),
                   onPressed: () => Navigator.push(
                     context,
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text('Multiple screen scaffold example'),
                   onPressed: () => Navigator.push(
                     context,
@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text('Multiple screen scaffold using body example'),
                   onPressed: () => Navigator.push(
                     context,
@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text('Multiple screen hinge example'),
                   onPressed: () => Navigator.push(
                     context,
@@ -155,7 +155,7 @@ class _DragDropScreenState extends State<DragDropScreen> {
                 ),
                 onWillAccept: (data) => true,
                 onAccept: (data) {
-                  _scaffoldKey.currentState.showSnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text("You dropped some data!"),
                     ),
@@ -221,7 +221,7 @@ class _MultipleScreensMethodsScreenState
               SizedBox(height: 8),
               Text('App spanned: ${_isAppSpanned ?? 'Unknown'}'),
               SizedBox(height: 8),
-              RaisedButton(
+              ElevatedButton(
                 child: Text('Manually determine multi device and app spanned'),
                 onPressed: () => _updateMultipleScreensInfo(),
               ),
@@ -423,7 +423,7 @@ class _MultipleScreensHingeExampleFirstScreenState
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RaisedButton(
+            ElevatedButton(
               child: Text('Get hinge'),
               onPressed: () => _getHinge(),
             ),
