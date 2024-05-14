@@ -51,7 +51,7 @@ class MultipleScreensPlugin :
     private var sensorListener: SensorEventListener? = null
     private var hinge: Hinge = Hinge()
 
-    fun registerPlugin(context: Context?, messenger: BinaryMessenger?) {
+    fun registerPlugin(context: Context?, messenger: BinaryMessenger) {
         this.context = context
         this.methodChannel = MethodChannel(messenger, METHOD_CHANNEL_NAME)
         this.methodChannel.setMethodCallHandler(this)
